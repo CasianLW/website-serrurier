@@ -11,7 +11,7 @@ export enum NavLinkEnum {
   Home = "Home",
   Services = "Comment ça marche ?",
   Tarifs = "Nos tarifs",
-  Faq = "Notre équipe",
+  Faq = "F.A.Q",
   // Realisations = "Nos realisations",
 }
 export const getPathFromNavLink: (navLink: NavLinkEnum) => string = (
@@ -87,7 +87,6 @@ const NavComponent: FC = () => {
       }
       ref={navRef}
     >
-
       <BurgerComponent />
 
       <NavLinkComponent
@@ -101,20 +100,19 @@ const NavComponent: FC = () => {
 
       {linksAreVisible &&
         navLinks.map((link, i) => {
-          
           const { navLink, supplementaryClasses } = link;
           const href = getPathFromNavLink(navLink);
 
-          if(link.navLink != "Home"){
-          return (
-            <NavLinkComponent
-              key={i}
-              navLink={navLink}
-              href={href}
-              supplentaryClasses={supplementaryClasses}
-            />
-          );
-        }
+          if (link.navLink != "Home") {
+            return (
+              <NavLinkComponent
+                key={i}
+                navLink={navLink}
+                href={href}
+                supplentaryClasses={supplementaryClasses}
+              />
+            );
+          }
         })}
 
       <PhoneButton supplentaryClasses=" absolute top-5 left-[40vw]" />
@@ -125,7 +123,7 @@ const NavComponent: FC = () => {
 export default NavComponent;
 
 const navLinks = [
-   {
+  {
     navLink: NavLinkEnum.Services,
     supplementaryClasses: "lg:ml-auto delay-[100ms]",
   },
